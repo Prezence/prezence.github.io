@@ -31,11 +31,17 @@ body {
     font-weight: 200;
 }
 
+body > video {
+    position: fixed;
+    height: 100%;
+    z-index: 0;
+}
+
 header {
     padding: var(--padding-base);
-    background: url('./zenstones.mp4') no-repeat;
+    /* background: url('./zenstones.mp4') no-repeat;
     background-size: cover;
-    background-attachment: fixed;
+    background-attachment: fixed; */
     height: 100vh;
 }
 
