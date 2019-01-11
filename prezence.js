@@ -8,7 +8,8 @@ class Prezence {
         window.onscroll = Prezence.on_scroll
         window.onresize = Prezence.on_resize
 
-        document.querySelector('video').play()
+        let video = document.querySelector('video')
+        video.onload = video.play.bind(video)
     }
 
     /**
