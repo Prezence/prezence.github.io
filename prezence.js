@@ -7,6 +7,8 @@ class Prezence {
 
         window.onscroll = Prezence.on_scroll
         window.onresize = Prezence.on_resize
+
+        document.querySelector('video').play()
     }
 
     /**
@@ -15,7 +17,7 @@ class Prezence {
      */
     static on_resize(ev) {
 
-        debugger
+        // debugger
     }
 
     /**
@@ -24,7 +26,7 @@ class Prezence {
      */
     static on_scroll(ev) {
 
-        debugger
+        // debugger
     }
 }
 

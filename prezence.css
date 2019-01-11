@@ -12,49 +12,28 @@
     --bg-4: #534741;
     --bg-5: #362f2d;
 
-    --gradient-1-a: #262d31;
-    --gradient-1-b: #31323b;
+    --gradient-1-a: #161d21d4;
+    --gradient-1-b: #30313ad4;
+    --gradient-1-c: #11121bc4;
 
-    --backdrop: linear-gradient(120deg, var(--gradient-1-a), var(--gradient-1-b));
+    --backdrop: linear-gradient(120deg, var(--gradient-1-a), var(--gradient-1-b), var(--gradient-1-c));
 
     --padding-base: 32px;
 
     --text-shadow: 2px 2px 2px #0f0f0f;
 }
 
-body, html { min-height: 100vh; }
-body, html, h1, h2, h3, h4, p, span, div { margin: 0; padding: 0; }
-
-body { 
-    background: var(--backdrop);
-    font-family: 'interstate';
-    font-weight: 200;
+::-webkit-scrollbar-track {
+    background: #0f0f0f;
 }
 
-body > video {
-    position: fixed;
-    height: 100%;
-    z-index: 0;
+::-webkit-scrollbar {
+    width: 4px;
 }
 
-header {
-    padding: var(--padding-base);
-    /* background: url('./zenstones.mp4') no-repeat;
-    background-size: cover;
-    background-attachment: fixed; */
-    height: 100vh;
-}
-
-section {
-    min-height: 72vh;
-}
-
-section:first-of-type {
-    
-}
-
-section:not(:first-of-type) {
-
+::-webkit-scrollbar-thumb {
+    width: 4px;
+    background: linear-gradient(32deg, var(--bg-4), var(--bg-3));
 }
 
 @keyframes fade-in {
@@ -67,22 +46,154 @@ section:not(:first-of-type) {
     100% { color: var(--fg-3); }
 }
 
-h1 {
-    opacity: 0;
-    color: var(--fg-1);
+body, html { min-height: 100vh; }
+body, html, h1, h2, h3, h4, p, span, div { margin: 0; padding: 0; }
+
+body { 
+    background: var(--backdrop);
+    font-family: 'interstate', sans-serif;
     font-weight: 200;
-    text-align: center;
-    font-size: 56px;
-    text-shadow: var(--text-shadow);
-    animation: 1s linear fade-in;
-    animation-fill-mode: forwards;
-    animation-delay: .4s;
+    color: var(--fg-4);
+    overflow-x: hidden;
 }
 
-h1 em {
+body > video {
+    position: fixed;
+    height: 100%;
+    z-index: -1;
+}
+
+header {
+    padding: var(--padding-base);
+    height: 100vh;
+    position: relative;
+}
+
+header img {
+    display: none;
+    opacity: 0;
+    margin: 20% auto;
+    animation: 1s linear fade-in;
+    animation-fill-mode: forwards;
+    animation-delay: 1.6s;
+}
+
+section {
+    height: 92vh;
+    margin: var(--padding-base);
+    padding: var(--padding-base);
+    border-radius: var(--padding-base);
+    box-sizing: border-box;
+    background: var(--backdrop);
+    border-top: 1px solid var(--fg-5);
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+main, aside {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: space-around;
+    padding: var(--padding-base);
+}
+
+main { flex: .6 }
+aside { flex: .4 }
+
+
+h1, h2 {
+    color: var(--fg-1);
+    font-weight: 200;
+    text-shadow: var(--text-shadow);
+}
+
+h1 {
+    opacity: 0;
+    text-align: center;
+    font-size: 64px;
+    margin-top: 2%;
+    animation: .8s linear fade-in;
+    animation-fill-mode: forwards;
+    animation-delay: .2s;
+}
+
+h2 {
+    font-weight: 24px;
+    font-size: 48px;
+}
+
+h1 em, h2 em {
     text-decoration: none;
     font-style: normal;
-    animation: 1s linear zen;
+    animation: .8s linear zen;
     animation-fill-mode: forwards;
-    animation-delay: 1s;
+    animation-delay: .8s;
+}
+
+h3 {
+    font-size: 28px;
+    padding: 4px 0;
+    font-weight: 300;
+    color: var(--fg-5);
+    border-bottom: 1px solid var(--bg-2)
+}
+
+p {
+    font-size: 20px;
+    text-shadow: var(--text-shadow);
+    line-height: 24px;
+    color: var(--fg-4);
+    padding: var(--padding-base);
+}
+
+.copyright {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    font-size: 12px;
+    padding: 2px;
+    color: #000;
+}
+
+@media screen and (max-width: 520px) {
+    
+    :root {
+        --padding-base: 4%;
+    }
+
+    header img {
+        margin: 32% auto;
+        display: block;
+    }
+
+    section {
+        height: 94vh;
+        flex-flow: column nowrap;
+    }
+
+    main { flex: .7 }
+    aside { flex: .3 }
+
+    h1 {
+        margin-top: 48px;
+        font-size: 48px;
+    }
+
+    h2 { font-size: 32px; }
+
+    h3 { font-size: 20px; }
+
+    p { font-size: 18px; }
+
+    aside img { height: 128px;  }
+}
+
+@media screen and (max-width: 400px) {
+
+    h2 { font-size: 30px; }
+
+    h3 { font-size: 16px; }
+
+    p { font-size: 14px; line-height: 18px; }
 }
