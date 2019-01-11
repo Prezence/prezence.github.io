@@ -1,0 +1,82 @@
+:root {
+
+    --fg-1: #73c8b6;
+    --fg-2: #00bff3;
+    --fg-3: #f69679;
+    --fg-4: #c7b299;
+    --fg-5: #8393ca;
+
+    --bg-1: #005826;
+    --bg-2: #0076a3;
+    --bg-3: #7d4900;
+    --bg-4: #534741;
+    --bg-5: #362f2d;
+
+    --gradient-1-a: #262d31;
+    --gradient-1-b: #31323b;
+
+    --backdrop: linear-gradient(120deg, var(--gradient-1-a), var(--gradient-1-b));
+
+    --padding-base: 32px;
+
+    --text-shadow: 2px 2px 2px #0f0f0f;
+}
+
+body, html { min-height: 100vh; }
+body, html, h1, h2, h3, h4, p, span, div { margin: 0; padding: 0; }
+
+body { 
+    background: var(--backdrop);
+    font-family: 'interstate';
+    font-weight: 200;
+}
+
+header {
+    padding: var(--padding-base);
+    background: url('./zenstones.mp4') no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100vh;
+}
+
+section {
+    min-height: 72vh;
+}
+
+section:first-of-type {
+    
+}
+
+section:not(:first-of-type) {
+
+}
+
+@keyframes fade-in {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes zen {
+    0% { color: var(--fg-1); }
+    100% { color: var(--fg-3); }
+}
+
+h1 {
+    opacity: 0;
+    color: var(--fg-1);
+    font-weight: 200;
+    text-align: center;
+    font-size: 56px;
+    text-shadow: var(--text-shadow);
+    animation: 1s linear fade-in;
+    animation-fill-mode: forwards;
+    animation-delay: .4s;
+}
+
+h1 em {
+    text-decoration: none;
+    font-style: normal;
+    animation: 1s linear zen;
+    animation-fill-mode: forwards;
+    animation-delay: 1s;
+}
