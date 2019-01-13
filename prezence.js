@@ -9,7 +9,7 @@ class Prezence {
         window.onresize = Prezence.on_resize
 
         let video = document.querySelector('video')
-        video.onload = video.play.bind(video)
+        video.oncanplay = video.play.bind(video)
     }
 
     /**
